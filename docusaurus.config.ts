@@ -42,6 +42,7 @@ const config: Config = {
           editUrl:
             'https://github.com/thanhhoajs/tree/main/packages/create-thanhhoajs/templates/shared/',
         },
+        blog: false,
         // blog: {
         //   showReadingTime: true,
         //   feedOptions: {
