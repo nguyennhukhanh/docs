@@ -1,0 +1,91 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sec-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FFA500"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0,0 L8,8 M8,0 L0,8" stroke="url(#sec-grad)" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Main Shield -->
+  <g transform="translate(100, 100)">
+    <!-- Shield Background -->
+    <path d="M0,-70 L50,-50 L50,30 Q50,70 0,90 Q-50,70 -50,30 L-50,-50 Z" 
+          fill="none" stroke="url(#sec-grad)" stroke-width="3"/>
+    
+    <!-- Inner Shield -->
+    <path d="M0,-50 L35,-35 L35,20 Q35,50 0,65 Q-35,50 -35,20 L-35,-35 Z" 
+          fill="none" stroke="url(#sec-grad)" stroke-width="2">
+      <animate attributeName="stroke-dasharray" 
+               values="0,200;200,0" dur="3s" 
+               repeatCount="indefinite"/>
+    </path>
+
+    <!-- Center Lock -->
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="0" r="20" fill="none" stroke="url(#sec-grad)" stroke-width="2"/>
+      <path d="M-10,-5 A10,10 0 0 1 10,-5 V5 A10,10 0 0 1 -10,5 Z" 
+            fill="url(#sec-grad)" filter="url(#glow)"/>
+      <path d="M-5,-5 A5,5 0 0 1 5,-5 V-15" 
+            fill="none" stroke="url(#sec-grad)" stroke-width="3"/>
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        values="0;10;-10;0"
+                        dur="2s"
+                        repeatCount="indefinite"/>
+    </g>
+
+    <!-- Rotating Security Elements -->
+    <g>
+      <g transform="rotate(0)">
+        <circle cx="0" cy="-40" r="8" fill="none" stroke="url(#sec-grad)" stroke-width="2"/>
+        <text x="-4" y="-37" font-family="monospace" font-size="8" fill="url(#sec-grad)">C</text>
+        <animateTransform attributeName="transform"
+                         type="rotate"
+                         from="0"
+                         to="360"
+                         dur="10s"
+                         repeatCount="indefinite"/>
+      </g>
+      <g transform="rotate(90)">
+        <circle cx="0" cy="-40" r="8" fill="none" stroke="url(#sec-grad)" stroke-width="2"/>
+        <text x="-4" y="-37" font-family="monospace" font-size="8" fill="url(#sec-grad)">H</text>
+        <animateTransform attributeName="transform"
+                         type="rotate"
+                         from="90"
+                         to="450"
+                         dur="10s"
+                         repeatCount="indefinite"/>
+      </g>
+      <g transform="rotate(180)">
+        <circle cx="0" cy="-40" r="8" fill="none" stroke="url(#sec-grad)" stroke-width="2"/>
+        <text x="-4" y="-37" font-family="monospace" font-size="8" fill="url(#sec-grad)">C</text>
+        <animateTransform attributeName="transform"
+                         type="rotate"
+                         from="180"
+                         to="540"
+                         dur="10s"
+                         repeatCount="indefinite"/>
+      </g>
+      <g transform="rotate(270)">
+        <circle cx="0" cy="-40" r="8" fill="none" stroke="url(#sec-grad)" stroke-width="2"/>
+        <text x="-4" y="-37" font-family="monospace" font-size="8" fill="url(#sec-grad)">R</text>
+        <animateTransform attributeName="transform"
+                         type="rotate"
+                         from="270"
+                         to="630"
+                         dur="10s"
+                         repeatCount="indefinite"/>
+      </g>
+    </g>
+  </g>
+</svg>
